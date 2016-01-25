@@ -4,6 +4,8 @@ lock '3.3.5'
 set :application, 'openvault'
 set :repo_url, 'https://github.com/WGBH/openvault3.git'
 
+set :rails_env, 'production'
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
