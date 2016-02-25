@@ -27,6 +27,7 @@ namespace :jetty do
           execute :rm, '-rf', "#{shared_path}/jetty"
           execute :rake, 'jetty:clean'
           execute :mv, 'jetty', shared_path
+          execute :ln, '-s', "#{shared_path}/jetty"
         end
       end
     end
