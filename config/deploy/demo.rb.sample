@@ -1,9 +1,0 @@
-server 'xxx.xxx.xxx.xxx', # TODO parameterize host IP
-  user: 'ec2-user',
-  roles: %w{web app},
-  ssh_options: {
-    user: 'ec2-user',
-    keys: %w(path/to/private-key.pem), # TODO parameterize key file name
-    forward_agent: false,
-    auth_methods: %w(publickey)
-  }
