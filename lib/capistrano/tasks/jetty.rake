@@ -13,7 +13,7 @@ namespace :jetty do
   task :start do
     on roles(:web) do
       within release_path do
-        with :rails_env => :production do
+        with rails_env: :production do
           execute :rake, 'jetty:start'
         end
       end
