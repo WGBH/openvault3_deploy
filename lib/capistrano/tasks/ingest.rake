@@ -1,4 +1,5 @@
-raise ArgumentError, 'Missing required environment variable OV_PBCORE' unless ENV['OV_PBCORE']
+
+# raise ArgumentError, 'Missing required environment variable OV_PBCORE' unless ENV['OV_PBCORE']
 
 # Relative path to remote PBCore file
 set :ov_pbcore_file, "ingest_data/#{File.basename(ENV['OV_PBCORE'])}"
