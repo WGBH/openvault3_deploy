@@ -25,6 +25,7 @@ namespace :ingest do
             raise "PBCore file not found. Upload pbcore with:\n\n\tOV_PBCORE=path/to/pbcore_file cap #{fetch(:stage)} ingest:upload\n\n"
           end
           execute :bundle, 'exec', 'ruby', "#{release_path}/scripts/ingest.rb", "--same-mount", '--files', "#{release_path}/#{fetch(:ov_pbcore_file)}"
+          invoke 'deploy:restart'
         end
       end
     end
