@@ -6,8 +6,8 @@ set :repo_url, 'https://github.com/WGBH/openvault3.git'
 
 set :rails_env, 'production'
 
-# Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+# Ask for github branch
+ask :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
