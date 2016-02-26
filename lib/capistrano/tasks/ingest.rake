@@ -1,8 +1,11 @@
-
-# raise ArgumentError, 'Missing required environment variable OV_PBCORE' unless ENV['OV_PBCORE']
-
 # Relative path to remote PBCore file
-set :ov_pbcore_file, "ingest_data/#{File.basename(ENV['OV_PBCORE'])}"
+# NOTE: WE pass a lambda here to lazy eval, so we only check for env var when
+#   trying to access :ov_pbcore_file. The `set' method does not take a block
+#   hence the stabby lambda.
+set :ov_pbcore_file, -> do
+  raise ArgumentError, 'Missing required environment variable OV_PBCORE' unless ENV['OV_PBCORE']
+  "ingest_data/#{File.basename(ENV['OV_PBCORE'])}"
+end
 
 namespace :ingest do
   task :upload do
