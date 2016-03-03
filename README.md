@@ -1,6 +1,6 @@
 # Open Vault Code Deployment
 
-This is the Capistrano project which deploys code and ingests records for
+This is the Capistrano project that deploys code and ingests records for
 [Open Vault](https://github.com/WGBH/openvault3),
 a website maintained by WGBH Media Library and Archives.
 
@@ -49,6 +49,17 @@ Before deploying, ensure the following:
 1. **Run `bundle install`**
 
   If `bundle install` runs successfully, then you should be able to run a deployment or ingest records.
+
+## Set up Solr
+
+If this is the first time deploying to the server, then you'll need to get a fresh copy of [blacklight-jetty](https://github.com/projectblacklight/blacklight-jetty)
+
+**WARNING!! This will replace any existing Solr index with a new one that is empty!**
+
+From the root directory of your cloned repo, run:
+```
+OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla-test.org.pem bundle exec cap demo 
+```
 
 ## Deploy
 
