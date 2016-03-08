@@ -78,7 +78,7 @@ If there were errors, or if you can't see the running website, then please [file
 You can also ingest into a server which is already up and running.
 
 ```
-OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla-test.org.pem OV_PBCORE=fm-export.zip bundle exec cap demo ingest:run
+bundle exec cap demo ingest:run OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla-test.org.pem OV_PBCORE=fm-export.zip
 ```
 
 
