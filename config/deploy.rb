@@ -37,6 +37,9 @@ ask :branch, 'master'
 # set :keep_releases, 5
 
 namespace :deploy do
+  after :updated, :ensure_jetty_is_installed do
+    invoke 'jetty:install'
+  end
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
