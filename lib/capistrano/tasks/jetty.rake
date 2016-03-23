@@ -18,7 +18,7 @@ namespace :jetty do
           jetty_pids.each do |jetty_pid|
             execute :kill, jetty_pid
           end
-          execute :rake, 'jetty:start'
+          execute :rake, 'jetty:restart'
         end
       end
     end
