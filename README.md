@@ -80,7 +80,7 @@ In special circumstances however, you may want to replace an existing Solr repos
 
 #### Remove your existing Solr index
 
-**WARNING!** Doing this will delete your exisiting index and it's data. This
+**WARNING!** Doing this will delete your exisiting index and its data. This
 operation cannot be undone. Normally you shouldn't have to do this.
 
 ```
