@@ -23,7 +23,7 @@ task :ingest do
         # Start jetty if it isn't already running.
         jetty_status = capture :bundle, 'exec', 'rake', 'jetty:status'
         if jetty_status == 'Not running'
-          invoke 'jetty:start'
+          invoke 'jetty:restart'
         end
 
         remote_ingest_data_path = "#{remote_ingest_data_dir}/#{File.basename(local_path)}"
