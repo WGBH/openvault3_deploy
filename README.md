@@ -52,10 +52,10 @@ Before deploying, ensure the following:
 
 ## Deploy
 
-From the root directory of your cloned repo, run the capistrano command for the `demo` stage. This step could take a few minutes.
+From the root directory of your cloned repo, run the capistrano command for the `aws` stage. This step could take a few minutes.
 
 ```
-bundle exec cap demo deploy OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
+bundle exec cap aws deploy OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
 ```
 
 If there were no errors, then you should be able to see the Open Vault website running in a web browser, at the target host's IP address.
@@ -66,7 +66,7 @@ If there were errors, or if you can't see the running website, then please [file
 To ingest into a server which is already up and running.
 
 ```
-bundle exec cap demo ingest OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem OV_PBCORE=fm-export.zip
+bundle exec cap aws ingest OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem OV_PBCORE=fm-export.zip
 ```
 
 ## Solr index
@@ -84,7 +84,7 @@ In special circumstances however, you may want to replace an existing Solr repos
 operation cannot be undone. Normally you shouldn't have to do this.
 
 ```
-bundle exec cap demo jetty:uninstall OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
+bundle exec cap aws jetty:uninstall OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
 ```
 
 #### Install a new Solr index
@@ -95,7 +95,7 @@ have to do this, but you may if you removed your existing Solr index using the
 steps above.
 
 ```
-bundle exec cap demo jetty:install OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
+bundle exec cap aws jetty:install OV_HOST=1.2.3.4 OV_SSH_KEY=~/.ssh/xyz.wgbh-mla.org.pem
 ```
 
 
