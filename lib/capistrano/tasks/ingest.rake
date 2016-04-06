@@ -27,7 +27,7 @@ task :ingest do
         end
 
         remote_ingest_data_path = "#{remote_ingest_data_dir}/#{File.basename(local_path)}"
-        execute :bundle, 'exec', 'ruby', "#{release_path}/scripts/ingest.rb", '--same-mount', ingest_source_type, remote_ingest_data_path
+        execute :bundle, 'exec', 'ruby', "#{release_path}/scripts/ingest.rb", ingest_source_type, remote_ingest_data_path
 
         # Restart the rails app
         invoke 'deploy:restart'
