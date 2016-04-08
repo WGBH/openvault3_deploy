@@ -1,3 +1,5 @@
+
+
 task :ingest do
   on roles(:web) do
     local_path = ENV['OV_PBCORE'].to_s.strip
@@ -15,8 +17,12 @@ task :ingest do
       raise ArgumentError, "OV_PBCORE must be a file or directory path, but '#{ENV['OV_PBCORE']}' was given"
     end
 
-    # TODO: clear out remote_ingest_data_dir directory before uploading?
-    upload! local_path, remote_ingest_data_dir, recursive: true
+    # Use rsync to upload files and abort on failure. NOTE: we stopped using
+    # the upload! method here because the Capistrano authors say it's not
+    # intended for potentially large payloads.
+    puts "Uploading files..."
+    puts `rsync -av #{local_path} #{host.user}@#{host.hostname}:#{remote_ingest_data_dir} -e 'ssh -i #{host.ssh_options[:keys].first}'`
+    abort("\nIngest aborted due to rsync failure\n\n") unless $?.success?
 
     within release_path do
       with rails_env: :production do
