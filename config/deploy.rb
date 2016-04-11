@@ -5,11 +5,9 @@ set :application, 'openvault'
 set :repo_url, 'https://github.com/WGBH/openvault3.git'
 set :rails_env, 'production'
 
-if ENV['OV_BRANCH']
-  set :branch, ENV['OV_BRANCH']
-else
-  ask :branch, 'master'
-end
+# Require confirmation by user if the repo is in a dirty state.
+include GitHelper
+verify_git_status!
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log')
 namespace :deploy do
