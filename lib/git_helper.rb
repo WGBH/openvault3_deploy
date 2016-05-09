@@ -3,8 +3,12 @@ module GitHelper
     `git status`.chomp
   end
 
+  def git_status_z
+    `git status -z`.chomp
+  end
+
   def git_dirty?
-    git_status !~ /Your branch is up-to-date with 'origin\/master'\.\nnothing to commit, working directory clean/
+    !git_status_z.empty?
   end
 
   def git_out_of_sync?
