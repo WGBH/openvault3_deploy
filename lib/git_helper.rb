@@ -4,7 +4,7 @@ module GitHelper
   end
 
   def git_dirty?
-    git_status !~ /Your branch is up-to-date with 'origin\/master.*nothing to commit, working directory clean/
+    git_status !~ /Your branch is up-to-date with 'origin\/master'\.\nnothing to commit, working directory clean/
   end
 
   def git_out_of_sync?
