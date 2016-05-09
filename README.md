@@ -1,5 +1,6 @@
 # Open Vault Code Deployment
 
+
 This is the Capistrano project that deploys code and ingests records for
 [Open Vault](https://github.com/WGBH/openvault3),
 a website maintained by WGBH Media Library and Archives.
