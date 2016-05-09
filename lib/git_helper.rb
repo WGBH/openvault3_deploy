@@ -3,12 +3,8 @@ module GitHelper
     `git status`.chomp
   end
 
-  def git_status_z
-    `git status -z`.chomp
-  end
-
   def git_dirty?
-    !git_status_z.empty?
+    !`git status -z`.chomp.empty?
   end
 
   def git_out_of_sync?
