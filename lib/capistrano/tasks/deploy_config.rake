@@ -10,9 +10,12 @@ namespace :deploy do
 
   namespace :config do
     task :all do
-      invoke "deploy:config:ci"
-      invoke "deploy:config:database"
-      invoke "deploy:config:secrets"
+      # only necessary for AAPB, openvault equivalent is in OV repo
+      if ENV['APP_NAME'] == 'AAPB'
+        invoke "deploy:config:ci"
+        invoke "deploy:config:database"
+        invoke "deploy:config:secrets"
+      end
     end
 
     task :ci => [:ensure_shared_config_dir] do
