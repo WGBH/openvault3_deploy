@@ -30,7 +30,8 @@ namespace :jetty do
       within release_path do
         with rails_env: :production do
           # Download a clean copy of jetty if one doesn't already exist
-          if test "[ ! -d #{shared_path}/jetty ]"
+          if test "[ ! -f #{shared_path}/jetty/start.jar ]"
+            invoke 'jetty:uninstall'
             execute :rake, 'jetty:clean'
             execute :mv, 'jetty', shared_path
           end
@@ -39,10 +40,12 @@ namespace :jetty do
           execute :ln, '-s', "#{shared_path}/jetty"  if test("[ ! -L #{release_path}/jetty ]")
 
           # Configure and restart jetty instance
-          execute :rake, 'jetty:config'
 
           # Use our own jetty:restart instead of `rake jetty:restart`, which
           # does not work when invoked from Capistrano.
+          # execute :rake, 'jetty:stop'
+          # execute :rake, 'jetty:start'
+          execute :rake, 'jetty:config'
           invoke 'jetty:restart'
         end
       end

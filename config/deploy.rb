@@ -6,7 +6,7 @@ lock '3.3.5'
 set :application, ENV['APP_NAME']
 set :repo_url, ENV['REPO_URL']
 set :rails_env, 'production'
-
+set :shared_path, "/var/www/#{ENV['APP_NAME']}/shared"
 
 if ENV['BRANCH'] && ENV['BRANCH'].length > 0
   set :branch, ENV['BRANCH']
@@ -40,7 +40,8 @@ verify_git_status!
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log')
 namespace :deploy do
-  after :updated, :ensure_jetty_is_installed do
+  
+  after :published, :ensure_jetty_is_installed do
     invoke 'jetty:install'
   end
 
