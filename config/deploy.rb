@@ -23,7 +23,7 @@ set :passenger_environment_variables, {
 }
 set :passenger_restart_with_touch, true
 
-if ENV['APP_NAME'] == 'AAPB'
+if ENV['APP_NAME'] == 'aapb'
   set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/ci.yml')
 end
 
@@ -45,7 +45,7 @@ namespace :deploy do
     invoke 'jetty:install'
   end
 
-  if ENV['APP_NAME'] == 'AAPB'
+  if ENV['APP_NAME'] == 'aapb'
 
     after :updated, :set_passenger_path do
       invoke 'deploy:config:remove_duplicate_passenger'
