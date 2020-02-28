@@ -31,7 +31,7 @@ GEM
     pry-byebug (3.2.0)
       byebug (~> 5.0)
       pry (~> 0.10)
-    rake (10.5.0)
+    rake (13.0.1)
     slop (3.6.0)
     sshkit (1.8.1)
       net-scp (>= 1.1.2)
