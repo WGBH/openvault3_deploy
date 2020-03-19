@@ -1,5 +1,3 @@
-require 'pry'
-
 namespace :deploy do
 
   task :ensure_shared_config_dir do
