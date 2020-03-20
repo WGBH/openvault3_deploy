@@ -40,7 +40,7 @@ verify_git_status!
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log')
 namespace :deploy do
-  
+
   after :published, :ensure_jetty_is_installed do
     invoke 'jetty:install'
   end
@@ -50,7 +50,5 @@ namespace :deploy do
     after :updated, :set_passenger_path do
       invoke 'deploy:config:remove_duplicate_passenger'
     end
-
-    after :finishing, 'api:add_credentials_to_env_variables'
   end
 end
