@@ -1,0 +1,43 @@
+export SSH_HOST=54.211.197.162
+export SSH_KEY=~/.ssh/openvault.wgbh-mla.org.pem
+bundle exec cap aws deploy 
+
+
+
+
+
+
+productio
+export BRANCH=master
+export APP_NAME=openvault
+export REPO_URL=https://github.com/WGBH-MLA/openvault3.git
+export SSH_HOST=3.213.117.192
+export SSH_KEY=~/.ssh/openvault.wgbh-mla.org.pem
+bundle exec cap aws deploy 
+
+demio
+export BRANCH=master
+export APP_NAME=openvault
+export REPO_URL=https://github.com/WGBH-MLA/openvault3.git
+export SSH_HOST=3.217.207.172
+export SSH_KEY=~/.ssh/openvault.wgbh-mla.org.pem
+bundle exec cap aws deploy 
+
+
+
+
+
+AAPB Dem Dem
+export BRANCH=master
+export APP_NAME=aapb
+export REPO_URL=https://github.com/WGBH-MLA/AAPB2.git
+export SSH_HOST=18.213.230.80
+export SSH_KEY=~/.ssh/aapb.wgbh-mla.org.pem
+
+
+AAPB Pro Pro
+export BRANCH=master
+export APP_NAME=aapb
+export REPO_URL=https://github.com/WGBH-MLA/AAPB2.git
+export SSH_HOST=52.55.103.243
+export SSH_KEY=~/.ssh/aapb.wgbh-mla.org.pem
