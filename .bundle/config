@@ -1,4 +1,0 @@
----
-BUNDLE_FROZEN: "true"
-BUNDLE_PATH: "/var/www/openvault/shared/bundle"
-BUNDLE_WITHOUT: "development:test"
